@@ -16,7 +16,7 @@ RUN \
   && wget "https://www.aerospike.com/artifacts/aerospike-server-community/${AEROSPIKE_VERSION}/aerospike-server-community-${AEROSPIKE_VERSION}-debian7.tgz" -O aerospike-server.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-server.tgz" | sha256sum -c - \
   && mkdir aerospike \
-  && tar xzf aerospike-server.tgz --strip-components=1 -C aerospike \
+  && tar -xzf aerospike-server.tgz --strip-components=1 -C aerospike \
   && dpkg -i aerospike/aerospike-server-*.deb \
   && apt-get purge -y --auto-remove wget ca-certificates \
   && rm -rf aerospike-server.tgz aerospike /var/lib/apt/lists/*
